@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
+@theme {
+  --color-background: #050505;
+  --color-foreground: rgba(255, 255, 255, 0.9);
+  --color-emerald-accent: #10b981;
+  --color-emerald-dark: #064e3b;
+  --color-emerald-light: #34d399;
+  
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+  
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050505;
+  --foreground: rgba(255, 255, 255, 0.9);
+  --emerald: #10b981;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Custom Ultra-thin Emerald Scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--emerald);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #34d399;
+}
+
+/* Glassmorphism Navigation */
+.glass-nav {
+  background: rgba(5, 5, 5, 0.4) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: var(--shadow-glass);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+p, span, div {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* Premium Typography Utilities */
+.text-emerald-gradient {
+  background: linear-gradient(to right, #064e3b, #10b981, #34d399);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hover-glow:hover {
+  text-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+  transition: all 0.3s ease;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
 }
