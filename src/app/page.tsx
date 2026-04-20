@@ -166,7 +166,7 @@ function ContactSection() {
     e.preventDefault();
     if (!formData.name || !formData.project || !formData.phone) return;
 
-    const message = `🪨 New Inquiry - Damodhar granite\n👤 Name: ${formData.name}\n🏗️ Project: ${formData.project}\n📞 Phone: ${formData.phone}\n\nSent from damodhargranite.com`;
+    const message = `🪨 New Inquiry - Damodhar granite\n👤 Name: ${formData.name}\n🏗️ Project: ${formData.project}\n📞 Phone: ${formData.phone}\n\nSent from damodhargranite.in`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/919448274047?text=${encodedMessage}`;
 
